@@ -1,13 +1,33 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Auto Ecole Joblet</title>
-<link href="ressource/style.css" rel="stylesheet">
-<script src="ressource/script.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auto Ecole Joblet</title>
 </head>
 <body>
-    <p>Site en construction</p>
+
+<section id="stages">
+  <h2>Prochains stages de récupération de points</h2>
+  <div id="liste-stages">Chargement...</div>
+</section>
+
+<script>
+  async function chargerStages() {
+    const reponse = await fetch('https://api.github.com/repos/natha-der/auto-ecole-joblet-vincent/contents/_stages');
+    const fichiers = await reponse.json();
+    
+    let html = '';
+    for (const fichier of fichiers) {
+      const contenu = await fetch(fichier.download_url);
+      const texte = await contenu.text();
+      html += `<div>${texte}</div><hr>`;
+    }
+    document.getElementById('liste-stages').innerHTML = html;
+  }
+
+  chargerStages();
+</script>
+
 </body>
+</html>

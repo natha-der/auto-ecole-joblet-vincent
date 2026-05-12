@@ -3,6 +3,7 @@ backend:
   repo: natha-der/auto-ecole-joblet-vincent
   branch: main
   base_url: https://auto-ecole-joblet-vincent.pages.dev
+  auth_endpoint: /auth
 
 media_folder: "images"
 

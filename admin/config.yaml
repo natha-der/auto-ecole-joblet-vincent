@@ -1,3 +1,5 @@
+site_url: https://auto-ecole-joblet-vincent.pages.dev
+
 backend:
   name: github
   repo: natha-der/auto-ecole-joblet-vincent

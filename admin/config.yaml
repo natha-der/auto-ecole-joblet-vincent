@@ -1,0 +1,19 @@
+backend:
+  name: github
+  repo: natha-der/auto-ecole-joblet-vincent
+  branch: main
+  base_url: https://auto-ecole-joblet-vincent.pages.dev
+
+media_folder: "images"
+
+collections:
+  - name: "stages"
+    label: "Stages de récupération de points"
+    folder: "_stages"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}"
+    fields:
+      - { label: "Date de début", name: "date_debut", widget: "datetime", format: "DD/MM/YYYY" }
+      - { label: "Date de fin", name: "date_fin", widget: "datetime", format: "DD/MM/YYYY" }
+      - { label: "Nombre de places disponibles", name: "places", widget: "number", min: 0, max: 20 }
+      - { label: "Heure", name: "heure", widget: "string", default: "9h00 - 17h00" }

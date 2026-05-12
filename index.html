@@ -2,32 +2,80 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+  <link href="ressource/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="ressource/script.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Auto Ecole Joblet</title>
 </head>
 <body>
 
-<section id="stages">
-  <h2>Prochains stages de récupération de points</h2>
-  <div id="liste-stages">Chargement...</div>
-</section>
+    <nav>
+        <div class="nav-left">
+            <div class="nav-logo-circle">🚗</div>
+            <div>
+                <p class="nav-title">Auto Ecole Joblet Vincent</p>
+                <p class="nav-subtitle">Votre réussite, notre priorité</p>
+            </div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#stages">Stages</a></li>
+            <li><a href="#horaires">Horaires</a></li>
+            <li><a href="#faq">Questions</a></li>
+            <li><a href="#contact" class="nav-cta">Nous contacter</a></li>
+        </ul>
+        <div class="burger" id="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
 
-<script>
-  async function chargerStages() {
-    const reponse = await fetch('https://api.github.com/repos/natha-der/auto-ecole-joblet-vincent/contents/_stages');
-    const fichiers = await reponse.json();
-    
-    let html = '';
-    for (const fichier of fichiers) {
-      const contenu = await fetch(fichier.download_url);
-      const texte = await contenu.text();
-      html += `<div>${texte}</div><hr>`;
+    <section class="hero">
+        <h1>Apprenez a conduire en toute confiance</h1>
+        <p>Formation de qualité avec des moniteurs experimentés et diplomés</p>
+        <div class="hero-cards">
+            <div class="hero-card">
+                <i class="fa-solid fa-trophy"></i>
+                <h3>Taux de réussite élevé</h3>
+                <p>85% de réussite au permis</p>
+            </div>
+            <div class="hero-card">
+                <i class="fa-solid fa-chalkboard-user"></i>
+                <h3>Moniteurs diplômés</h3>
+                <p>Équipe pédagogique qualifiée</p>
+            </div>
+            <div class="hero-card">
+                <i class="fa-solid fa-calendar-days"></i>
+                <h3>Horaires flexibles</h3>
+                <p>Du lundi au samedi</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="stages">
+    <h2>Prochains stages de récupération de points</h2>
+    <div id="liste-stages">Chargement...</div>
+    </section>
+
+    <script>
+    async function chargerStages() {
+        const reponse = await fetch('https://api.github.com/repos/natha-der/auto-ecole-joblet-vincent/contents/_stages');
+        const fichiers = await reponse.json();
+        
+        let html = '';
+        for (const fichier of fichiers) {
+        const contenu = await fetch(fichier.download_url);
+        const texte = await contenu.text();
+        html += `<div>${texte}</div><hr>`;
+        }
+        document.getElementById('liste-stages').innerHTML = html;
     }
-    document.getElementById('liste-stages').innerHTML = html;
-  }
 
-  chargerStages();
-</script>
+    chargerStages();
+    </script>
 
 </body>
 </html>

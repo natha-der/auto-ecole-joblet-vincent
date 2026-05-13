@@ -4,13 +4,12 @@
   <meta charset="UTF-8">
   <link href="ressource/style.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <script src="ressource/script.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Auto Ecole Joblet</title>
 </head>
 <body>
 
-    <nav>
+    <nav class="nav">
         <div class="nav-left">
             <div class="nav-logo-circle">🚗</div>
             <div>
@@ -25,16 +24,16 @@
             <li><a href="#faq">Questions</a></li>
             <li><a href="#contact" class="nav-cta">Nous contacter</a></li>
         </ul>
-        <div class="burger" id="burger">
+        <button class="burger" id="burger">
             <span></span>
             <span></span>
             <span></span>
-        </div>
+        </button>
     </nav>
 
     <section class="hero">
-        <h1>Apprenez a conduire en toute confiance</h1>
-        <p>Formation de qualité avec des moniteurs experimentés et diplomés</p>
+        <h1>Apprenez à conduire en toute confiance</h1>
+        <p>Formation de qualité avec des moniteurs expérimentés et diplômés</p>
         <div class="hero-cards">
             <div class="hero-card">
                 <i class="fa-solid fa-trophy"></i>
@@ -54,28 +53,52 @@
         </div>
     </section>
 
-
-    <section id="stages">
-    <h2>Prochains stages de récupération de points</h2>
-    <div id="liste-stages">Chargement...</div>
+    <section class="services" id="services">
+        <h2>Nos formations</h2>
+        <div class="services-grid">
+            <div class="scard">
+                <i class="fa-solid fa-car"></i>
+                <h3>Permis B</h3>
+                <p>Formation complète au permis de conduire avec cours théoriques et pratiques</p>
+                <ul>
+                    <li>Code de la route en ligne ou en salle</li>
+                    <li>20h de conduite minimum</li>
+                    <li>Véhicules récents et adaptés</li>
+                    <li>Suivi personnalisé</li>
+                </ul>
+            </div>
+            <div class="scard">
+                <i class="fa-solid fa-user-check"></i>
+                <h3>Conduite accompagnée (AAC)</h3>
+                <p>Apprentissage anticipé de la conduite dès 15 ans</p>
+                <ul>
+                    <li>Formation initiale de 20h minimum</li>
+                    <li>Réduction d'assurance</li>
+                    <li>Suivi régulier avec rendez-vous pédagogiques</li>
+                    <li>Meilleur taux de réussite</li>
+                </ul>
+            </div>
+            <div class="scard">
+                <i class="fa-solid fa-rotate"></i>
+                <h3>Stage de récupération de points</h3>
+                <p>Stages agréés par la préfecture pour récupérer jusqu'à 4 points</p>
+                <ul>
+                    <li>Stage sur 2 jours consécutifs</li>
+                    <li>Plusieurs dates disponibles</li>
+                    <li>Attestation de fin de stage</li>
+                    <li>Animateurs diplômés</li>
+                </ul>
+            </div>
+        </div>
     </section>
 
-    <script>
-    async function chargerStages() {
-        const reponse = await fetch('https://api.github.com/repos/natha-der/auto-ecole-joblet-vincent/contents/_stages');
-        const fichiers = await reponse.json();
-        
-        let html = '';
-        for (const fichier of fichiers) {
-        const contenu = await fetch(fichier.download_url);
-        const texte = await contenu.text();
-        html += `<div>${texte}</div><hr>`;
-        }
-        document.getElementById('liste-stages').innerHTML = html;
-    }
+    <section class="stages" id="stages">
+        <div class="stages-header">
+            <h2>📅  Prochains stages de récupération de points</h2>
+        </div>
+        <div id="liste-stages">Chargement...</div>
+    </section>
 
-    chargerStages();
-    </script>
-
+    <script src="ressource/script.js"></script>
 </body>
 </html>

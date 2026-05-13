@@ -1,12 +1,12 @@
 :root {
-  --couleur-primaire: #8B6914;      /* beige doré foncé - header, accents */
-  --couleur-primaire-clair: #A67C1F; /* beige doré moyen - hover, boutons */
-  --couleur-secondaire: #C4972A;    /* beige doré clair - icônes, highlights */
-  --couleur-fond-clair: #F5EDD6;    /* beige très clair - fonds de cartes */
-  --couleur-fond-blanc: #FFFFFF;    /* blanc - fond principal */
-  --couleur-texte: #1A1A1A;         /* noir doux - texte principal */
-  --couleur-texte-gris: #555555;    /* gris - texte secondaire */
-  --couleur-bordure: #E0C87A;       /* beige clair - bordures, séparateurs */
+  --couleur-primaire: #8B6914;
+  --couleur-primaire-clair: #A67C1F;
+  --couleur-secondaire: #C4972A;
+  --couleur-fond-clair: #F5EDD6;
+  --couleur-fond-blanc: #FFFFFF;
+  --couleur-texte: #1A1A1A;
+  --couleur-texte-gris: #555555;
+  --couleur-bordure: #E0C87A;
 }
 
 * {
@@ -20,8 +20,6 @@ body {
     background: var(--couleur-fond-blanc);
     color: var(--couleur-texte);
 }
-
-/* Header */
 
 nav {
     background: var(--couleur-primaire);
@@ -92,79 +90,328 @@ nav {
     display: none;
 }
 
-/* HERO */
-
 .hero {
-  background-color: var(--couleur-primaire-clair);
-  padding: 4rem 3rem 6rem;
-  text-align: center;
-  position: relative;
+    background-color: var(--couleur-primaire-clair);
+    padding: 4rem 3rem 6rem;
+    text-align: center;
+    position: relative;
 }
 
 .hero::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 40px;
-  background-color: var(--couleur-fond-blanc);
-  border-radius: 40px 40px 0 0;
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background-color: var(--couleur-fond-blanc);
+    border-radius: 40px 40px 0 0;
 }
 
 .hero h1 {
-  font-size: 2rem;
-  color: white;
-  font-weight: 400;
-  margin-bottom: 0.8rem;
+    font-size: 2rem;
+    color: white;
+    font-weight: 400;
+    margin-bottom: 0.8rem;
 }
 
 .hero > p {
-  font-size: 0.95rem;
-  color: var(--couleur-bordure);
-  font-family: sans-serif;
-  margin-bottom: 2rem;
+    font-size: 0.95rem;
+    color: var(--couleur-bordure);
+    font-family: sans-serif;
+    margin-bottom: 2rem;
 }
 
 .hero-cards {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 1rem;
-  max-width: 800px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
 }
 
 .hero-card {
-  background-color: var(--couleur-secondaire);
-  border: 0.5px solid var(--couleur-bordure);
-  border-radius: 10px;
-  padding: 1.2rem 1rem;
-  aspect-ratio: 4/3;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+    background-color: var(--couleur-secondaire);
+    border: 0.5px solid var(--couleur-bordure);
+    border-radius: 10px;
+    padding: 1.2rem 1rem;
+    aspect-ratio: 4/3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .hero-card i {
-  font-size: 2rem;
-  color: var(--couleur-fond-blanc);
-  display: block;
-  margin-bottom: 0.6rem;
+    font-size: 2rem;
+    color: var(--couleur-fond-blanc);
+    display: block;
+    margin-bottom: 0.6rem;
 }
 
 .hero-card h3 {
-  font-size: 1.2rem;
-  font-family: sans-serif;
-  font-weight: 500;
-  color: white;
-  margin-bottom: 0.3rem;
+    font-size: 1.2rem;
+    font-family: sans-serif;
+    font-weight: 500;
+    color: white;
+    margin-bottom: 0.3rem;
 }
 
 .hero-card p {
-  font-size: 0.9rem;
-  color: white;
-  font-family: sans-serif;
+    font-size: 0.9rem;
+    color: white;
+    font-family: sans-serif;
+}
+
+.services {
+    padding: 3rem;
+    background-color: var(--couleur-fond-blanc);
+}
+
+.section-label {
+    font-size: 0.75rem;
+    font-family: sans-serif;
+    letter-spacing: 0.18em;
+    color: var(--couleur-primaire);
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: var(--couleur-texte);
+    margin-bottom: 2rem;
+    text-align: center;
+    font-weight: 400;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.scard {
+    border: 0.5px solid var(--couleur-bordure);
+    border-radius: 10px;
+    padding: 1.5rem;
+    background-color: var(--couleur-fond-clair);
+}
+
+.scard i {
+    font-size: 1.4rem;
+    color: var(--couleur-primaire);
+    display: block;
+    margin-bottom: 0.8rem;
+}
+
+.scard h3 {
+    font-size: 0.95rem;
+    font-family: sans-serif;
+    font-weight: 500;
+    color: var(--couleur-texte);
+    margin-bottom: 0.5rem;
+}
+
+.scard p {
+    font-size: 0.85rem;
+    color: var(--couleur-texte-gris);
+    font-family: sans-serif;
+    line-height: 1.5;
+    margin-bottom: 0.8rem;
+}
+
+.scard ul {
+    list-style: none;
+}
+
+.scard ul li {
+    font-size: 0.8rem;
+    color: var(--couleur-texte-gris);
+    font-family: sans-serif;
+    padding: 0.2rem 0;
+}
+
+.scard ul li::before {
+    content: '✓ ';
+    color: var(--couleur-primaire);
+}
+
+.stages {
+    padding: 2rem 3rem;
+    background-color: var(--couleur-fond-blanc);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.stages-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.stages-header h2 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    font-family: sans-serif;
+    color: var(--couleur-texte);
+}
+
+.stage-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.stage-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--couleur-fond-blanc);
+    border: 0.5px solid var(--couleur-bordure);
+    border-radius: 12px;
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.stage-date, .stage-heure {
+    font-family: sans-serif;
+    font-size: 0.95rem;
+    color: var(--couleur-texte);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.4rem;
+}
+
+.stage-date {
+    font-weight: 500;
+}
+
+.stage-places {
+    display: inline-block;
+    background: var(--couleur-texte);
+    color: white;
+    font-size: 0.85rem;
+    font-family: sans-serif;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+.stage-complet {
+    display: inline-block;
+    background: #cc0000;
+    color: white;
+    font-size: 0.85rem;
+    font-family: sans-serif;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+
+    nav {
+        padding: 1.2rem 1.5rem;
+        position: relative;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        background: var(--couleur-primaire);
+        padding: 1.5rem;
+        gap: 1rem;
+        z-index: 100;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .burger {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 4px;
+        align-self: center;
+    }
+
+    .burger span {
+        display: block;
+        width: 25px;
+        height: 2px;
+        background-color: white;
+        border-radius: 2px;
+    }
+
+    .hero {
+        padding: 2rem 1.5rem 4rem;
+    }
+
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero-cards {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+    }
+
+    .hero-card {
+        aspect-ratio: auto;
+        padding: 1rem;
+    }
+
+    .services {
+        padding: 2rem 1.5rem;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stages {
+        padding: 2rem 1.5rem;
+    }
+
+    .stage-card {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+    }
+
+    .stages-header {
+        text-align: center;
+        flex-direction: column;
+    }
+
+    .stage-info {
+        text-align: center;
+        width: 100%;
+    }
+
+    .stage-date {
+        justify-content: center;
+    }
+
+    .stage-heure {
+        justify-content: center;
+    }
+
+    .stage-places, .stage-complet {
+        align-self: center;
+    }
 }

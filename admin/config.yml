@@ -15,6 +15,7 @@ collections:
     folder: "_stages"
     create: true
     slug: "{{year}}-{{month}}-{{day}}"
+    identifier_field: "date_debut"
     fields:
       - { label: "Date de début", name: "date_debut", widget: "datetime", format: "DD/MM/YYYY" }
       - { label: "Date de fin", name: "date_fin", widget: "datetime", format: "DD/MM/YYYY" }

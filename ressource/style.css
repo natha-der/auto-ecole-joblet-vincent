@@ -644,7 +644,34 @@ h2 {
 }
 
 
+.stats {
+    background: var(--couleur-primaire);
+    padding: 2rem 3rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
 
+.stat {
+    text-align: center;
+    padding: 1rem;
+}
+
+.stat-num {
+    font-size: 1.8rem;
+    color: var(--couleur-fond-clair);
+    font-weight: 500;
+    display: block;
+    font-family: sans-serif;
+}
+
+.stat-lbl {
+    font-size: 0.75rem;
+    color: rgba(245,237,214,0.6);
+    font-family: sans-serif;
+    display: block;
+    margin-top: 0.3rem;
+    letter-spacing: 0.05em;
+}
 
 
 @media (max-width: 768px) {
@@ -773,5 +800,9 @@ h2 {
     /* FAQ */
     .faq {
         padding: 2rem 1.5rem;
+    }
+
+    .stats {
+    grid-template-columns: repeat(2, 1fr);
     }
 }

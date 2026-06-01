@@ -235,6 +235,23 @@ h2 {
     padding: 0.2rem 0;
 }
 
+.scard-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    font-family: sans-serif;
+    color: var(--couleur-primaire);
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid var(--couleur-bordure);
+    padding-bottom: 2px;
+    transition: color 0.2s;
+}
+
+.scard-btn:hover {
+    color: var(--couleur-primaire-clair);
+}
+
 .scard ul li::before {
     content: '✓ ';
     color: var(--couleur-primaire);
@@ -674,6 +691,192 @@ h2 {
 }
 
 
+
+/* Page permis B */
+
+
+.formation-hero {
+    background: var(--couleur-primaire);
+    padding: 3rem 4rem;
+}
+
+.formation-hero-content h1 {
+    font-size: 2rem;
+    color: white;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    text-align: left;
+}
+
+.formation-hero-content p {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.7);
+    font-family: sans-serif;
+}
+
+.formation-hero-content .section-label {
+    text-align: left;
+    color: var(--couleur-fond-clair);
+    margin-bottom: 0.4rem;
+}
+
+.formation-section {
+    padding: 3rem 4rem;
+    background: var(--couleur-fond-blanc);
+}
+
+.formation-grid {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.formation-bloc {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 0.5px solid var(--couleur-bordure);
+}
+
+.formation-bloc:last-child {
+    border-bottom: none;
+}
+
+.formation-bloc h2 {
+    font-size: 1.1rem;
+    color: var(--couleur-texte);
+    margin-bottom: 1rem;
+    text-align: left;
+    font-family: sans-serif;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.formation-bloc h2 i {
+    color: var(--couleur-primaire);
+    font-size: 1rem;
+}
+
+.formation-bloc p {
+    font-size: 0.9rem;
+    color: var(--couleur-texte-gris);
+    font-family: sans-serif;
+    line-height: 1.7;
+}
+
+.formation-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.formation-list li {
+    font-size: 0.9rem;
+    color: var(--couleur-texte-gris);
+    font-family: sans-serif;
+    padding: 0.4rem 0;
+    border-bottom: 0.5px solid var(--couleur-fond-clair);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.formation-list li::before {
+    content: '✓';
+    color: var(--couleur-primaire);
+    font-weight: 500;
+}
+
+.tarifs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.tarif-card {
+    border: 0.5px solid var(--couleur-bordure);
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+    background: var(--couleur-fond-clair);
+}
+
+.tarif-nom {
+    font-size: 0.8rem;
+    font-family: sans-serif;
+    color: var(--couleur-texte-gris);
+    margin-bottom: 0.5rem;
+}
+
+.tarif-prix {
+    font-size: 1.3rem;
+    font-family: sans-serif;
+    font-weight: 500;
+    color: var(--couleur-primaire);
+    margin-bottom: 0.3rem;
+}
+
+.tarif-desc {
+    font-size: 0.75rem;
+    font-family: sans-serif;
+    color: var(--couleur-texte-gris);
+}
+
+.aside-card {
+    background: var(--couleur-fond-clair);
+    border: 0.5px solid var(--couleur-bordure);
+    border-radius: 10px;
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.aside-card h3 {
+    font-size: 0.95rem;
+    font-family: sans-serif;
+    font-weight: 500;
+    color: var(--couleur-texte);
+    margin-bottom: 0.5rem;
+}
+
+.aside-card p {
+    font-size: 0.85rem;
+    font-family: sans-serif;
+    color: var(--couleur-texte-gris);
+    line-height: 1.5;
+}
+
+.aside-lien {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.85rem;
+    font-family: sans-serif;
+    color: var(--couleur-primaire);
+    text-decoration: none;
+    padding: 0.5rem 0;
+    border-bottom: 0.5px solid var(--couleur-bordure);
+}
+
+.aside-lien:last-child {
+    border-bottom: none;
+}
+
+.aside-lien:hover {
+    color: var(--couleur-primaire-clair);
+}
+
+.aside-lien i {
+    font-size: 0.9rem;
+}
+
+
+
+
 @media (max-width: 768px) {
 
     nav {
@@ -804,5 +1007,32 @@ h2 {
 
     .stats {
     grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    /* permis b*/ 
+
+    .formation-grid {
+    grid-template-columns: 1fr;
+    }
+
+    .formation-main {
+        order: 1;
+    }
+
+    .formation-aside {
+        order: 2;
+    }
+
+    .formation-section {
+        padding: 2rem 1.5rem;
+    }
+
+    .formation-hero {
+        padding: 2rem 1.5rem;
+    }
+
+    .tarifs-grid {
+        grid-template-columns: 1fr;
     }
 }

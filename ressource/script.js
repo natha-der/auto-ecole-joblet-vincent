@@ -1,11 +1,10 @@
 "use strict";
 
 document.addEventListener('DOMContentLoaded', function() {
-    chargerStages();
     burgerMenu();
     faqAccordion();
 });
-
+/*
 async function chargerStages() {
     const reponse = await fetch('https://api.github.com/repos/natha-der/auto-ecole-joblet-vincent/contents/_stages');
     const fichiers = await reponse.json();
@@ -42,7 +41,7 @@ async function chargerStages() {
     
     document.getElementById('liste-stages').innerHTML = html;
 }
-
+*/
 function burgerMenu() {
     const burger = document.getElementById('burger');
     const navLinks = document.querySelector('.nav-links');

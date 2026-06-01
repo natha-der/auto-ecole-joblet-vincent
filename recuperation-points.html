@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stage Récupération de Points - Auto-École Joblet Vincent</title>
+    <link href="ressource/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+    <nav class="nav">
+        <div class="nav-left">
+            <div class="nav-logo-circle">🚗</div>
+            <div>
+                <p class="nav-title">Auto-École Joblet Vincent</p>
+                <p class="nav-subtitle">Votre réussite, notre priorité</p>
+            </div>
+        </div>
+        <a href="index.html" class="nav-cta" style="text-decoration:none;">← Retour</a>
+    </nav>
+
+    <div class="formation-hero">
+        <div class="formation-hero-content">
+            <p class="section-label">Nos formations</p>
+            <h1>Stage de récupération de points</h1>
+            <p>Stages agréés par la préfecture pour récupérer jusqu'à 4 points sur votre permis.</p>
+        </div>
+    </div>
+
+    <section class="formation-section">
+        <div class="formation-grid">
+
+            <div class="formation-main">
+
+                <div class="formation-bloc">
+                    <h2><i class="fa-solid fa-list-check"></i> La formation</h2>
+                    <p>Notre stage de récupération de points est agréé par la préfecture. Il se déroule sur 2 jours consécutifs et vous permet de récupérer jusqu'à 4 points sur votre permis de conduire.</p>
+                </div>
+
+                <div class="formation-bloc">
+                    <h2><i class="fa-solid fa-star"></i> Ce qui est inclus</h2>
+                    <ul class="formation-list">
+                        <li>Stage sur 2 jours consécutifs</li>
+                        <li>Récupération de jusqu'à 4 points</li>
+                        <li>Attestation de fin de stage</li>
+                        <li>Animateurs diplômés et agréés</li>
+                        <li>Stage agréé préfecture</li>
+                    </ul>
+                </div>
+
+                <div class="formation-bloc">
+                    <h2><i class="fa-solid fa-euro-sign"></i> Tarifs</h2>
+                    <div class="tarifs-grid">
+                        <div class="tarif-card">
+                            <div class="tarif-nom">Stage 2 jours</div>
+                            <div class="tarif-prix">À compléter €</div>
+                            <div class="tarif-desc">Par participant</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="formation-bloc">
+                    <h2><i class="fa-solid fa-file"></i> Documents nécessaires</h2>
+                    <ul class="formation-list">
+                        <li>Permis de conduire original</li>
+                        <li>Pièce d'identité en cours de validité</li>
+                        <li>Relevé d'information du permis</li>
+                    </ul>
+                </div>
+
+                <div class="formation-bloc">
+                    <h2><i class="fa-solid fa-calendar"></i> Prochaines dates</h2>
+                    <div id="liste-stages-detail">Chargement...</div>
+                </div>
+
+            </div>
+
+            <div class="formation-aside">
+                <div class="aside-card">
+                    <h3>S'inscrire</h3>
+                    <p>Pour vous inscrire à un stage, contactez-nous par téléphone en précisant la date souhaitée.</p>
+                    <a href="tel:+33689531158" class="contact-card" style="margin-top:1rem;">
+                        <i class="fa-solid fa-phone"></i>
+                        <div class="contact-card-info">
+                            <h4>Téléphone</h4>
+                            <p>06 89 53 11 58</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="aside-card">
+                    <h3>Autres formations</h3>
+                    <a href="permis-b.html" class="aside-lien">
+                        <i class="fa-solid fa-car"></i> Permis B
+                    </a>
+                    <a href="conduite-accompagnee.html" class="aside-lien">
+                        <i class="fa-solid fa-user-check"></i> Conduite accompagnée (AAC)
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <span>© 2025 Auto-École Joblet Vincent — Auto-entrepreneur</span>
+        <div class="footer-links">
+            <a href="mentions-legales.html">Mentions légales</a>
+            <span>SIRET : 48445930000014</span>
+            <span class="footer-credit">Site réalisé par <a href="https://ndlstudio.fr" target="_blank">NDL Studio</a></span>
+        </div>
+    </footer>
+
+    <script>
+    async function chargerStagesDetail() {
+        const reponse = await fetch('https://api.github.com/repos/natha-der/auto-ecole-joblet-vincent/contents/_stages');
+        const fichiers = await reponse.json();
+        
+        let stages = [];
+        
+        for (const fichier of fichiers) {
+            const contenu = await fetch(fichier.download_url);
+            const texte = await contenu.text();
+            
+            const dateDebut = texte.match(/date_debut:\s*(.+)/)?.[1]?.trim();
+            const dateFin = texte.match(/date_fin:\s*(.+)/)?.[1]?.trim();
+            const places = texte.match(/places:\s*(.+)/)?.[1]?.trim();
+            const heure = texte.match(/heure:\s*(.+)/)?.[1]?.trim();
+            
+            stages.push({ dateDebut, dateFin, places, heure });
+        }
+        
+        let html = '';
+        for (const stage of stages) {
+            const placesNum = parseInt(stage.places);
+            const badgeClass = placesNum === 0 ? 'stage-complet' : 'stage-places';
+            const badgeTexte = placesNum === 0 ? 'Complet' : `${placesNum} places disponibles`;
+            
+            html += `
+            <div class="stage-card">
+                <div class="stage-info">
+                    <div class="stage-date">📅 ${stage.dateDebut} - ${stage.dateFin}</div>
+                    <div class="stage-heure">🕐 ${stage.heure}</div>
+                </div>
+                <span class="${badgeClass}">${badgeTexte}</span>
+            </div>`;
+        }
+        
+        document.getElementById('liste-stages-detail').innerHTML = html;
+    }
+
+    chargerStagesDetail();
+    </script>
+
+</body>
+</html>
